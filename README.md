@@ -55,23 +55,13 @@ Dataset/
     └── 15
 ```
 ### Scene index
-| Index | Scene |
-| ------------- | ------------- |
-| 1 | bathroomCabinet |
-| 2 | bathroomCounter |
-| 3 | bin |
-| 4 | desk |
-| 5 | drawer |
-| 6 | kitchenCounter |
-| 7 | kitchenCupboard |
-| 8 | kitchenSink |
-| 9 | microwave |
-| 10 | nightstand |
-| 11 | pantryShelf |
-| 12 | smallBins |
-| 13 | stoveTop |
-| 14 | windowsillAC |
-| 15 | woodenTable |
+| Index | Scene | Index | Scene | Index | Scene |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| 1 | bathroomCabinet | 6 | kitchenCounter | 11 | pantryshelf |
+| 2 | bathroomCounter | 7 | kitchenCupboard | 12 | smallbins |
+| 3 | bin | 8 | kitchenSink | 13 | stovetop |
+| 4 | desk | 9 | microwave | 14 | windowsillAC |
+| 5 | drawer | 10 | nightstand | 15 | woodenTable |
 
 ### Access
 1. Direct download
