@@ -28,12 +28,12 @@ In your scratch space,
 `mkdir Dataset`  
 8. Start queuing slurm jobs in the order below. Do not queue the next slurm job before the previous one is 100% done running and you have met the prerequisites specified below (`squeue -u $USER` to check job statuses).  
 
-| sbatch filename | description | command to queue job | prerequisites to running |
+| sbatch filename | description | command to queue job (for scenes 1-7) | prerequisites to running |
 | ------------- | ------------- | ------------- | ------------- |
-| run-downloadDataset.s | Downloads the dataset to /scratch/$USER/ from shared Google Drive folder, then fixes the downloaded .zip files and unzips them to separate folders.  | `sbatch --array=1-7 run-downloadDataset.s` | Must have empty directory `/scratch/Dataset/` |
-| run-colorExtraction.s | Extracts color .png frames from each .mkv recording, and creates an .mp4 video of the frames. Creates directories for the extracted data. | `sbatch --array=1-7 run-colorExtraction.s` | Must have completed `run-downloadDataset.s` |
-| run-maskGeneration.s | Create binary masks of each | wip | wip |
-| run-markClipRanges.s | wip | wip | wip |
+| run-downloadDataset.s | Downloads the dataset to `/scratch/$USER/Dataset/` from shared Google Drive folder, then fixes the downloaded .zip files and unzips them to separate folders. |  `sbatch --array=1-7 run-downloadDataset.s` | Must have empty directory `/scratch/Dataset/` job. |
+| run-colorExtraction.s | In the recording directory level: Creates `Dataset/scene#/recording#/hand_frames/` directories, containing extracted color .png frames from each .mkv. Creates an .mp4 video of the frames. | `sbatch --array=1-7 run-colorExtraction.s` | Must have completed `run-downloadDataset.s` |
+| run-maskGeneration.s | In the recording directory level: Creates `Dataset/scene#/recording#/color_frames/` directories, containing low-resolution .png binary masks of each color .png frame using pretrained pixel-level classification models. | `sbatch --array=1-7 run-maskGeneration.s` | Must have completed `run-colorExtraction.s` job. Then download `HandPoseEstimation.py `, `HandPrediction.py`, `HandPredictionModel.py` and place it in each scene directory (i.e. /scratch/1/ for scene 1). For each scene, also download the respective `model.pkl` and upload it to that directory level in your scratch space. The python scripts will load this model to predict hand pixels for masking. |
+| run-markClipRanges.s | Create a `clip_ranges.txt` file in each recording's hand_frames directory, containing the frame number ranges for hand appearances/actions in the dataset. | sbatch --array=1-7 run--markClipRanges.s | Must have completed `run-maskGeneration.s`. For each scene, download its appropriate `MarkClipRanges.py` script from Google Drive, and upload to its respective scene directory. |
 | run-handPoseEstimation.s | wip | wip | wip |
 | run-zipImgs.s | wip | wip | wip |
 | run-uploadDataset.s | wip | wip | wip |
