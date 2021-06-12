@@ -28,20 +28,12 @@ In your scratch space,
 `mkdir Dataset`  
 8. Start queuing slurm jobs in the order below. Do not queue the next slurm job before the previous one is 100% done running and you have met the prerequisites specified below (`squeue -u $USER` to check job statuses).  
 
-| sbatch filename | description | command to queue job |
-| ------------- | ------------- |
-| run-downloadDataset.s |  | |
-| 2 |  |
-| 3 |  |
-| 4 |  |
-| 5 |  |
-| 6 |  |
-| 7 | kitchenCupboard |
-| 8 | kitchenSink |
-| 9 | microwave |
-| 10 | nightstand |
-| 11 | pantryShelf |
-| 12 | smallBins |
-| 13 | stoveTop |
-| 14 | windowsillAC |
-| 15 | woodenTable |
+| sbatch filename | description | command to queue job | prerequisites to running |
+| ------------- | ------------- | ------------- | ------------- |
+| run-downloadDataset.s | Downloads the dataset to /scratch/$USER/ from shared Google Drive folder, then fixes the downloaded .zip files and unzips them to separate folders.  | `sbatch --array=1-7 run-downloadDataset.s` | Must have empty directory `/scratch/Dataset/` |
+| run-colorExtraction.s | Extracts color .png frames from each .mkv recording, and creates an .mp4 video of the frames. Creates directories for the extracted data. | `sbatch --array=1-7 run-colorExtraction.s` | Must have completed `run-downloadDataset.s` |
+| run-maskGeneration.s | Create binary masks of each | wip | wip |
+| run-markClipRanges.s | wip | wip | wip |
+| run-handPoseEstimation.s | wip | wip | wip |
+| run-zipImgs.s | wip | wip | wip |
+| run-uploadDataset.s | wip | wip | wip |
