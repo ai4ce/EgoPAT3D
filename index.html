@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>EgoPAT3D</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="description">
+    <meta content="http://webthemez.com" name="author">
+	<!-- css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="css/jcarousel.css" rel="stylesheet">
+    <link href="css/flexslider.css" rel="stylesheet">
+    <link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="home-page" id="wrapper">
+        <!-- start header -->
+
+        <header>
+            <div class="navbar navbar-default navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target=
+                        ".navbar-collapse" data-toggle="collapse" type=
+                        "button"><span class="icon-bar"></span> <span class=
+                        "icon-bar"></span> <span class=
+                        "icon-bar"></span></button> <a class="navbar-brand"
+                        href="index.html"><img alt="logo" src=
+                        "img/alltogether.png" width="220" >
+                        <!--<img alt="logo" src=
+                        "img/New_York_University-Logo.wine.png" width="250" ><img alt="logo" src=
+                        "img/SJTU-Logo.png" width="140">-->
+                         </a>
+                    </div>
+
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li>
+                                <a href="about.html">EgoPAT3D</a>
+                            </li>
+                            <li>
+                                <a href="services.html">Benchmarks</a>
+                            </li>
+                            <li>
+                                <a href="portfolio.html">Rescources</a>
+                            </li>
+                            <li>
+                                <a href="pricing.html">About Us</a>
+                            </li>
+                            <li>
+                                <a href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header><!-- end header -->
+
+        <section id="banner">
+            <!-- Slider -->
+            <div class="flexslider" id="main-slider" style="margin-bottom: 0%;">
+                <ul class="slides">
+                    <li>
+                        <!--title-->
+                        <div class="flex-caption wow fadeInLeft animated" data-wow-animation-name="none">
+                            <h3 class="lowercase"> EgoPAT3D </h3>
+                            <p> <b> An Egocentric Action Target Prediction Dataset </b> </p>
+                        </div>
+                        <!-- background images-->
+                        <div class="col-xs-4 mt-2" style="padding-left: 0 !important;padding-right: 0 !important;">
+                            <img src="img/gif/1.gif" alt="Unable to view video!">
+                            <img src="img/gif/4.gif" alt="Unable to view video!">
+                            <img src="img/gif/7.gif" alt="Unable to view video!">
+                            <img src="img/gif/10.gif" alt="Unable to view video!">
+                            <img src="img/gif/13.gif" alt="Unable to view video!">
+                        </div>
+                        <div class="col-xs-4 mt-2" style="padding-left: 0 !important;padding-right: 0 !important;">
+                            <img src="img/gif/2.gif"  alt="Unable to view video!">
+                            <img src="img/gif/5.gif" alt="Unable to view video!">
+                            <img src="img/gif/8.gif" alt="Unable to view video!">
+                            <img src="img/gif/11.gif"  alt="Unable to view video!">
+                            <img src="img/gif/14.gif" alt="Unable to view video!">
+                        </div>
+                        <div class="col-xs-4 mt-2" style=" padding-left: 0 !important;padding-right: 0 !important;">
+                            <img src="img/gif/3.gif"  alt="Unable to view video!">
+                            <img src="img/gif/6.gif" alt="Unable to view video!">
+                            <img src="img/gif/9.gif" alt="Unable to view video!"> 
+                            <img src="img/gif/12.gif" alt="Unable to view video!">
+                            <img src="img/gif/15.gif"  alt="Unable to view video!">
+                        </div>
+                      
+                    <!--
+                        <video loop autoplay muted class="center-full">
+                            <source src="img/Media1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    -->
+                        
+                    </li>
+                </ul>
+            </div><!-- end slider -->
+        </section>
+
+        <section id="content">
+            <div class="container">
+                <div class="about">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="about-logo">
+                                <h2 style="color: black;" style="font-size:21pt">About EgoPAT3D</span></h2>
+                                <div class="row">
+                                    <!--first col-->
+                                    <div class="col-md-6">
+                                        <div class="test-left mx-auto">
+                                            <h3 style="font-size: 15pt">Data Modalities</h3>
+                                            <ul style="padding-left: 15pt">
+                                                <li>RGB (.png), depth, IR, IMU, temperature frames compressed in multiple
+                                                    channels in Matroska format (.mkv)
+                                                    <ul>
+                                                        <li style="font-size: smaller;">RGB color frames (.png) extracted from
+                                                            the Matroska file</li>
+                                                        <li style="font-size: smaller;">RGB videos (.mp4) of the color frames
+                                                            from each recording</li>
+                                                    </ul>
+                                                </li>
+                                                <li>Point clouds (.ply) of each scene, produced using AzureKinfu</li>
+                                                <li>Labeled hand/action frames (.txt)</li>
+                                                <li>Hand pose inference results using Google MediaPipe Hands (.txt)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--second col-->
+                                    <div class="col-md-6">
+                                        <h3 style="font-size:15pt">Specifications</h3>
+                                        <div class="test-left mx-auto">
+                                            <ul style="padding-left: 15pt">
+                                                <li>15 household scenes</li>
+                                                <li>15 point cloud files (one for each scene)</li>
+                                                <li>150 total recordings(10 recordings in each scene, with different object
+                                                    configurations in each recording)</li>
+                                                <li>15000 hand-object actions (100 per recording)</li>
+                                                <li>~600 min of RGBD video (~4 min per video)</li>
+                                                <li>~1,080,000 RGB frames at 30 fps</li>
+                                                <li>~900,000 hand action frames (assuming ~2 seconds per hand-object action)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--paragraph-->
+                                <!--
+                                        <p style="font-size:16px"> 
+                                            " "
+                                        </p>
+                                        -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="hero-text">
+            <div class="container">
+                    <div class="row">
+                        <div class="about wow fadeInLeft animated">
+                            <h2 style="color: white; font-size: 21pt;">News</h2>
+                            <p style="font-size:15pt"><i class="fa fa-lg pr-10"></i>
+                                <b>Aug 27, 2021</b>                             
+                                Paper submitted to Neurips. Dataset is available for download <a href="https://github.com/ai4ce/EgoPAT3D">here</a>. 
+                            </p>
+                            <p style="font-size:15pt"><i class="fa fa-lg pr-10"></i>
+                                    <b>to be featured...Aug 27, 2021</b>
+                                    Paper submitted to Neurips. Dataset is available for download <a href="https://github.com/ai4ce/EgoPAT3D">here</a>.
+                            </p>
+
+                            <p style="font-size:15pt"><i class="fa fa-lg pr-10"></i>
+                                    <b>to be featured...Aug 27, 2021</b>                                       
+                                    Paper submitted to Neurips. Dataset is available for download <a href="https://github.com/ai4ce/EgoPAT3D">here</a>.
+                            </p>
+                                
+                            <br>    
+                        </div>
+                     </div>
+                </div>
+        </section>
+
+        
+
+        
+        
+
+        <!--
+        <section class="hero-text">
+            <div class="container">
+                <div class="row">
+                    <div class="about wow fadeInRight animated">
+                        <h2 style="color: white;">Urban Scene Simulation</h2>
+                        <div class="column">
+                            <video width="310" height=auto loop autoplay muted style="border-radius: 10px; box-shadow: 0 0 20px black;">
+                                <source src="‎⁨img/RGBD/rgb_video.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video width="310" height=auto loop autoplay muted style="border-radius: 10px; box-shadow: 0 0 20px black;">
+                                <source src="img/town04.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video width="310" height=auto loop autoplay muted style="border-radius: 10px; box-shadow: 0 0 20px black;">
+                                <source src="img/town05.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+
+                        <div class="column">
+                            <video width="310" height=auto loop autoplay muted style="border-radius: 10px; box-shadow: 0 0 20px black;">
+                                <source src="img/town04-1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video width="310" height=auto loop autoplay muted style="border-radius: 10px; box-shadow: 0 0 20px black;">
+                                <source src="img/town05-1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video width="310" height=auto loop autoplay muted style="border-radius: 10px; box-shadow: 0 0 20px black;">
+                                <source src="img/town03-1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    -->
+        
+
+        <div class="container">
+            <div class="row">
+                <div class="wow fadeInRight animated" data-wow-animation-name="none">
+                    <br>
+                    <h2 style="font-size: 21pt;">Dataset Features</h2>
+                </div>
+            </div>
+        </div>
+            
+        <div class="container">
+            <div class="row">
+                <!--pincture-->
+                <div class="col-lg-3 mt-2">
+                    <div class="horizontal-center">
+                        <img src="img/home/VideoPicture.jpg" style="width:100%; margin-top: 20%">
+                    </div>
+                </div>
+                <!--Contents-->
+                <div class="col-lg-9 mt-2">
+                    <div class="card text-left shadow-lg mt-2">
+                        <div class="card-body">
+                            <h3 style="font-size: 15pt;">RGBD/IMU Dataset using Kinect Recorder</h3>
+                            <div class="text-left mx-auto">
+                                <ul style="padding-left: 15pt">
+                                    <li>The RGBD/IMU dataset is collected using the Microsoft Azure Kinect Recorder.</li>
+                                    <li>There are 15 scenes featuring various household spaces, such as pantry shelves (scene index 11), 
+                                        bathroom cabinets (scene index 1), kitchen couters (scene index 4) and bins (scene index 3), ect. </li>
+                                    <li>Each scene contains 10 RGBD/IMU recordings, forming 10*4 minutes of footage, 
+                                        and each recording can be extracted into approximately 7200 frames under 30 fps.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!--pincture-->
+                <div class="col-lg-3 mt-2">
+                    <div class="horizontal-center">
+                        <img src="img/home/VideoPicture.jpg" style="width:100%; height:200%; margin-top: 20%">
+                    </div>
+                </div>
+                <!--Contents-->
+                <div class="col-lg-9 mt-2">
+                    <div class="card text-left shadow-lg mt-2">
+                        <div class="card-body">
+                            <h3 style="font-size: 15pt;">Point Cloud Dataset using Azure KinectFusion</h3>
+                            <div class="text-left mx-auto">
+                                <ul style="padding-left: 15pt">
+                                    <li>to be featured...</li>
+            
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!--pincture-->
+                <div class="col-lg-3 mt-2">
+                    <div class="horizontal-center">
+                        <img src="img/home/VideoPicture.jpg" style="width:100%; margin-top: 20%">
+                    </div>
+                </div>
+                <!--Contents-->
+                <div class="col-lg-9 mt-2">
+                    <div class="card text-left shadow-lg mt-2">
+                        <div class="card-body">
+                            <h3 style="font-size: 15pt;">to be featured...</h3>
+                            <div class="text-left mx-auto">
+                                <ul style="padding-left: 15pt">
+                                    <li>to be featured...</li>
+        
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-3 wow fadeInRight animated" data-wow-animation-name="none">
+                    <h3 style="color: #656565">Multi-Agent Recordings</h3>
+                    <p style="font-size: 14px;"><em>Well-synchronized recordings from both roadside infrastructure and multiple vehicles at intersections.</em></p>
+                </div>
+
+                <div class="col-lg-9 col-sm-9 text-center wow fadeInRight animated" data-wow-animation-name="none">
+                <div class="row">
+
+                <div class="column-three">
+                    <div class=frame-r>
+                        <img src="img/multi-agent/overview.PNG" alt="LiDAR" class="img-valign-shadow">
+                            <div>Collaborative perception</div>
+                    </div>
+                </div>
+                    <div class="column-three">
+                        <div class=frame-r>
+                        <img src="img/multi-agent/cars-1.PNG" alt="LiDAR" class="img-valign-shadow">
+                        <div>Front camera of 4 vehicles in scene 1</div></div>
+                    </div>
+                    <div class="column-three">
+                        <div class=frame-r>
+                        <img src="img/multi-agent/infra-1.PNG" alt="LiDAR" class="img-valign-shadow">
+                        <div>Camera of infrastructure in scene 1</div></div>
+                    </div>
+                    
+                </div>
+                
+                </div></div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-sm-3 wow fadeInRight animated"
+                    data-wow-animation-name="none">
+                        <h3 style="color: #656565">Multi-Modality Sensors</h3>
+                        <p style="font-size: 14px;"><em>Multi-modality sensor suite with RGB camera, 
+                           LiDAR, GNSS, and IMU. </em></p>
+                    </div>
+
+                    <div class="col-lg-9 col-sm-9 text-center wow fadeInRight animated"
+                    data-wow-animation-name="none">
+                    <div class="row">
+                        <div class="column-four">
+                        <div class=frame>
+                            <img src="img/Features/lidar.png" alt="LiDAR" class="img-valign">
+                                <div>LiDAR</div>
+                          </div>
+                        </div>
+                        <div class="column-four">
+                          <div class=frame>
+                            <img src="img/Features/camera.png" alt="Camera" class="img-valign">
+                            <div> Camera </div>
+                          </div>
+                        </div>
+                        <div class="column-four">
+                          <div class=frame>
+                            <img src="img/Features/gnss.png" alt="GNSS" class="img-valign">
+                            <div> GNSS </div>
+                          </div>
+                        </div>
+                        <div class="column-four">
+                          <div class=frame>
+                            <img src="img/Features/imu.jpg" alt="IMU" class="img-valign">
+                                <div>IMU</div>
+                          </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-sm-3 wow fadeInRight animated"
+                    data-wow-animation-name="none">
+                        <h3 style="color: #656565">Diverse Annotations</h3>
+                        <p style="font-size: 14px;"><em>Well-annotated camera images and LiDAR frames with 360° coverage.</em> </p>
+                    </div>
+
+                <div class="col-lg-9 col-sm-9 text-center wow fadeInRight animated" data-wow-animation-name="none">
+                    <div class="row">
+                        <div class="column-four">
+                        <div class=frame-l>
+                            <img src="img/annotations/sem-2.jpg" alt="LiDAR" class="img-valign-shadow">
+                                <div>Semantic segmentation camera</div>
+                        </div>
+                        </div>
+                        <div class="column-four">
+                            <div class=frame-l>
+                                <img src="img/annotations/dep-2.jpg" alt="LiDAR" class="img-valign-shadow">
+                                    <div>Depth camera</div>
+                            </div>
+                        </div>
+                        <div class="column-four">
+                            <div class=frame-l>
+                                <img src="img/annotations/ann-2.png" alt="LiDAR" class="img-valign-shadow">
+                                    <div>Bounding box on image</div>
+                                </div>
+                            </div>
+                            
+                            <div class="column-four">
+                                <div class=frame-l>
+                                <img src="img/annotations/ann-3.png" alt="LiDAR" class="img-valign-shadow">
+                                    <div>Bounding box on LiDAR</div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+                    
+                </div>
+                <hr>
+            </div>
+        </div>
+    -->
+        <br>
+
+        
+
+        <footer>
+            <div id="sub-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="copyright">
+                                <p><span>&copy; NYU AI4CE Lab 2021 All right reserved.
+                                </span> </p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <ul class="social-network">
+                                <li>
+                                    <a class="fa fa-github" data-placement=
+                                    "top" href="https://github.com/ai4ce" style="font-style: italic"
+                                    title="GitHub"></a>
+                                </li>
+                                <li>
+                                    <a class="fa fa-external-link" data-placement=
+                                    "top" href="https://ai4ce.github.io/" style="font-style: italic"
+                                    title="Lab Website"></a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+
+    <a class="scrollup fa fa-angle-up active" href="#" style=
+    "font-style: italic"></a> <!-- javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script> <script src="js/jquery.easing.1.3.js"></script> <script src="js/bootstrap.min.js"></script> <script src="js/jquery.fancybox.pack.js"></script> <script src="js/jquery.fancybox-media.js"></script> <script src="js/portfolio/jquery.quicksand.js"></script> <script src="js/portfolio/setting.js"></script> <script src="js/jquery.flexslider.js"></script> <script src="js/animate.js"></script> <script src="js/custom.js"></script> <script src="js/owl-carousel/owl.carousel.js"></script>
+</body>
+</html>
