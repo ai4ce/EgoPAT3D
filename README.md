@@ -85,7 +85,7 @@ Dataset/
 
 <br>
 <p align="center">
-  <a href="https://www.revolvermaps.com/livestats/5ghrmrideny/">Live Visitor Statistics (via RevolverMaps)</a> 
+  <a href="https://www.revolvermaps.com/livestats/5chmzyob7br/">Live Visitor Statistics (via RevolverMaps)</a> 
   <br><br>
-  <img align="center" width="50%" height="50%" src="http://rf.revolvermaps.com/h/m/a/0/00ff6c/256/10/5ghrmrideny.png">
+  <img align="center" width="50%" height="50%" src="http://rf.revolvermaps.com/h/m/a/0/ff0000/256/10/5chmzyob7br.png">
 </p>
