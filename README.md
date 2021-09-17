@@ -83,6 +83,7 @@ Dataset/
 2. Manual build using HPC (currently only available on NYU HPC)
 <br/>Download the raw multimodal recording data and generate a local copy of the dataset on your NYU HPC /scratch space, following instructions provided in this repository's model_build folder. May take 1-3 days to build on NYU Greene depending on compute resource availability.
 
+<br>
 <p align="center">
   <img src="https://rf.revolvermaps.com/w/3/s/a/0/40/2/ffffff/010020/aa0000/5t1b6s2q2e5.png">
   <br>
