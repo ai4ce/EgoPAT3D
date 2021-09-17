@@ -39,8 +39,6 @@ Dataset/
                 ├── clip_ranges.txt
                 ├── hand_landmarks.txt
                 └── masks.zip
-            ├── bathroomCabinet_1.mkv
-            ├── color_frames.zip
             └── rgb_video.mp4
         ├── bathroomCabinet_2/ # all sceneName_# directories share the same folder/subdirectory structure
         ├── ...
