@@ -1,5 +1,5 @@
-EgoPAT3D - An Egocentric Action Target Prediction Dataset
-===========
+EgoPAT3D - Egocentric Action Target Prediction Dataset
+==========
 
 <p align="center">
   <img width="50%" height="50%" src="https://ai4ce.github.io/EgoPAT3D/img/home/VideoPicture.jpg">
@@ -85,5 +85,5 @@ Dataset/
 
 
 <p align="center">
-<a href="https://www.revolvermaps.com/livestats/5bg5ih6kimm/"><img src="//rf.revolvermaps.com/h/m/a/0/ff0000/128/15/5bg5ih6kimm.png" width="512" height="156" alt="Live Visitor Statistics" style="border:0;"></a>
+<a href="https://www.revolvermaps.com/livestats/5tx91lyocuk/"><img src="//rf.revolvermaps.com/w/3/s/a/0/40/2/ffffff/010020/aa0000/5tx91lyocuk.png" alt="Live Visitor Statistics" style="border:0;"></a>
 </p>
