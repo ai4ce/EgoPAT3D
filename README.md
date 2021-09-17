@@ -29,6 +29,10 @@ Azure Kinect recording specifications:
 | Frames per second | 30 | 30 |
 | Recording mode | -- | WFOV 2x2 binned |  
 
+### Access dataset:
+[Dataset without raw .MKV recordings and individual pre-extracted RGB frames](https://drive.google.com/drive/folders/1WHCWQ3dVoBqz6lkJKzgVoDfU_NO0lcFw?usp=sharing)
+
+[Raw .MKV recordings](https://drive.google.com/drive/folders/1cxisgjUK9afV9vr62L_m6Shb7Mfl39zc?usp=sharing)
 
 ### Dataset folder hierarchy
 ```bash
@@ -52,6 +56,7 @@ Dataset/
     
     └── 15
 ```
+
 ### Scene index
 | Index | Scene | Index | Scene | Index | Scene |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
@@ -62,7 +67,6 @@ Dataset/
 | 5 | drawer | 10 | nightstand | 15 | woodenTable |
 
 ### Access
-1. Direct download
-<br/>Simplest method. Currently unavailable, but a link will be up soon for this option once dataset upload is complete.
-2. Manual build using HPC
+1. Direct download using the links above
+2. Manual build using HPC (currently only available on NYU HPC)
 <br/>Download the raw multimodal recording data and generate a local copy of the dataset on your NYU HPC /scratch space, following instructions provided in this repository's model_build folder. May take 1-3 days to build on NYU Greene depending on compute resource availability.
