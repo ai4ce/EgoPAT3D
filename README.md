@@ -85,7 +85,7 @@ Dataset/
 
 <br>
 <p align="center">
-  <img src="https://rf.revolvermaps.com/w/3/s/a/0/40/2/ffffff/010020/aa0000/5t1b6s2q2e5.png">
-  <br>
-  <a href="https://www.revolvermaps.com/livestats/5tx91lyocuk/">Live Visitor Statistics (via RevolverMaps)</a> 
+  <a href="https://www.revolvermaps.com/livestats/5chmzyob7br/">Live Visitor Statistics (via RevolverMaps)</a> 
+  <br><br>
+  <img align="center" width="50%" height="50%" src="http://rf.revolvermaps.com/h/m/a/0/ff0000/256/10/5chmzyob7br.png">
 </p>
