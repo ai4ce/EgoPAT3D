@@ -1,4 +1,4 @@
-# [The Easiest Baseline of Egocentric Action Target Predictor]
+# A Baseline of Egocentric Action Target Predictor
 
 ## Environment setup
 This code has been tested on Ubuntu 20.04, Python 3.7.0, Pytorch 1.9.0, CUDA 11.2.
@@ -32,7 +32,7 @@ Download the datasets from our provided link.
 
 
 ### Train a model
-To train the SiamAPN model, run `train.py` with the desired configs:
+To train the predictor model, run `train.py` with the desired configs:
 
 ```
 python train.py 
