@@ -1,0 +1,13 @@
+matplotlib              
+matplotlib-inline         
+numpy                        
+open3d                     
+open3d-python             
+opencv-python                
+scikit-learn            
+scipy                
+six                         
+sklearn            
+torch                        
+torchvision                 
+tqdm                        
