@@ -2,7 +2,7 @@ EgoPAT3D - Egocentric Action Target Prediction Dataset
 ==========
 
 <p align="center">
-  <img width="50%" height="50%" src="https://ai4ce.github.io/EgoPAT3D/img/home/VideoPicture.jpg">
+  <img width="50%" height="50%" src="https://ai4ce.github.io/EgoPAT3D/img/home/scene.pdf">
 </p>
 
 <b>EgoPAT3D</b> contains multimodal data generated from RGBD first-person videos recorded using a helmet-mounted Azure Kinect depth camera. In each recording, the camera wearer reaches for, grabs, and moves objects randomly placed in a household scene.
