@@ -11,8 +11,9 @@ EgoPAT3D - Egocentric Action Target Prediction Dataset
 </p>
 
 <p> Note: * denotes equal contribution </p>
+![]("img/home/scene.jpeg")
 <p align="center">
-  <img width="50%" height="50%" src="EgoPAT3D/img-folder/scene.jpeg">
+  <img width="50%" height="50%" src="https://github.com/ai4ce/EgoPAT3D/tree/gh-pages/img/home/scene.jpg">
 </p>
 
 ### Abstract
