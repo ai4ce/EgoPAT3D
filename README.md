@@ -10,29 +10,30 @@ EgoPAT3D - Egocentric Action Target Prediction Dataset
   <b><a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ&hl=en">Chen Feng</a></b>
 </p>
 
-<p> Note: * denotes equal contribution </p>
-<br>
+ <p style="font-size:small">* denotes equal contribution </p>
+
 <p align="center">
-  <img width="50%" height="50%" src="https://github.com/ai4ce/EgoPAT3D/blob/gh-pages/img/home/scene.jpg">
+  <img width="100%" height="50%" src="https://github.com/ai4ce/EgoPAT3D/blob/gh-pages/img/home/scene.jpg">
 </p>
 
-### Abstract
+# Abstract
+
 We are interested in anticipating as early as possible the target location of someone's object manipulation action in a 3D workspace from egocentric vision. It is important in fields like human-robot collaboration, but has not yet received enough attention from vision and learning communities. To stimulate more research on this challenging egocentric vision task, we propose a large multi-modal dataset of more than 1 million frames of RGBD and IMU streams,
 and provide evaluation metrics based on our high-quality 2D and 3D labels from semi-automatic annotation. Meanwhile, we design baseline methods using recurrent neural networks (RNNs) and conduct various ablation studies to validate their effectiveness. Our results demonstrate that this new task is worthy of further study and could attract researchers in robotics, vision, and learning.
 
-### Dataset
+# Dataset
 <b>EgoPAT3D</b> contains multimodal data generated from RGBD first-person videos recorded using a helmet-mounted Azure Kinect depth camera. In each recording, the camera wearer reaches for, grabs, and moves objects randomly placed in a household scene.
 
 Each recording features a different configuration of household objects within the scene. The dataset also contains scene point clouds for 3D registration, binary masks for hand presence frame detection, and hand pose inference results for each frame detected to contain a hand.  
 
-### Table of Contents
+#### Table of Contents
 * [Specifications](#specifications)
 * [Access](#access-dataset)
 * [Folder hierarchy](#dataset-folder-hierarchy)
 * [Scene index](#scene-index)
 * [Alternative access methods](#alternative-access)
 
-### Specifications
+#### Specifications
 * 15 household scenes (see scene index table below)
 * 15 point cloud files (one for each scene)
 * 150 total recordings (10 recordings in each scene, with different object configurations in each recording)
@@ -56,12 +57,12 @@ Azure Kinect recording specifications:
 | Frames per second | 30 | 30 |
 | Recording mode | -- | WFOV 2x2 binned |  
 
-### Access dataset:
+#### Access dataset:
 [Dataset without raw .MKV recordings and individual pre-extracted RGB frames](https://drive.google.com/drive/folders/1WHCWQ3dVoBqz6lkJKzgVoDfU_NO0lcFw?usp=sharing)
 
 [Raw .MKV recordings](https://drive.google.com/drive/folders/1cxisgjUK9afV9vr62L_m6Shb7Mfl39zc?usp=sharing)
 
-### Dataset folder hierarchy
+#### Dataset folder hierarchy
 ```bash
 Dataset/
     ├──1/ # one folder containing multimedia data for each of the 15 scenes (see scene index table below)
@@ -84,7 +85,7 @@ Dataset/
     └── 15
 ```
 
-### Scene index
+#### Scene index
 | Index | Scene | Index | Scene | Index | Scene |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | 1 | bathroomCabinet | 6 | kitchenCounter | 11 | pantryshelf |
@@ -93,7 +94,7 @@ Dataset/
 | 4 | desk | 9 | microwave | 14 | windowsillAC |
 | 5 | drawer | 10 | nightstand | 15 | woodenTable |
 
-### Alternative access
+#### Alternative access
 1. Direct download using the links above
 2. Manual build using HPC (currently only available on NYU HPC)
 <br/>Download the raw multimodal recording data and generate a local copy of the dataset on your NYU HPC /scratch space, following instructions provided in this repository's model_build folder. May take 1-3 days to build on NYU Greene depending on compute resource availability.
