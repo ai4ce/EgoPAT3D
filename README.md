@@ -2,7 +2,7 @@ EgoPAT3D - Egocentric Action Target Prediction Dataset
 ==========
 
 <p align="center">
-  <img width="50%" height="50%" src="https://ai4ce.github.io/EgoPAT3D/img/home/Videopicture.jpeg">
+  <img width="50%" height="50%" src="https://ai4ce.github.io/EgoPAT3D/img/home/scene.jpeg">
 </p>
 
 ### Abstract
