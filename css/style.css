@@ -1491,6 +1491,18 @@ footer .widget .flickr_badge img {
     margin: 0 9px 20px 0;
 }
 /* --- Recent post widget --- */
+footer{                         /*-- lc: added--*/
+    padding-top: 30px; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
 
 .recent-post {
     margin: 20px 0 0 0;
