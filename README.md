@@ -8,6 +8,7 @@ EgoPAT3D - Egocentric Action Target Prediction Dataset
 <b><a href="https://scholar.google.com/citations?user=DmahiOYAAAAJ">Hang Zhao</a></b>, 
 <b><a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ&hl=en">Chen Feng</a></b>
 
+* denotes equal contribution 
 <p align="center">
   <img width="50%" height="50%" src="https://ai4ce.github.io/EgoPAT3D/img/home/scene.jpeg">
 </p>
