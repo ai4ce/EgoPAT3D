@@ -1,5 +1,12 @@
 EgoPAT3D - Egocentric Action Target Prediction Dataset
 ==========
+<b><a href="https://scholar.google.com/citations?user=i_aajNoAAAAJ&hl=en">Yiming Li</a></b>
+<b><a href="https://scholar.google.com/citations?user=i_aajNoAAAAJ&hl=en">Ziang Cao</a></b>
+<b><a href="https://scholar.google.com/citations?user=i_aajNoAAAAJ&hl=en">Andrew Liang</a></b>
+<b><a href="https://scholar.google.com/citations?user=i_aajNoAAAAJ&hl=en">Benjamin Liang</a></b>
+<b><a href="https://scholar.google.com/citations?user=i_aajNoAAAAJ&hl=en">Luoyao Chen</a></b>
+<b><a href="https://scholar.google.com/citations?user=i_aajNoAAAAJ&hl=en">Hang Zhao</a></b>
+<b><a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ&hl=en">Chen Feng</a></b>
 
 <p align="center">
   <img width="50%" height="50%" src="https://ai4ce.github.io/EgoPAT3D/img/home/scene.jpeg">
@@ -13,7 +20,6 @@ and provide evaluation metrics based on our high-quality 2D and 3D labels from s
 <b>EgoPAT3D</b> contains multimodal data generated from RGBD first-person videos recorded using a helmet-mounted Azure Kinect depth camera. In each recording, the camera wearer reaches for, grabs, and moves objects randomly placed in a household scene.
 
 Each recording features a different configuration of household objects within the scene. The dataset also contains scene point clouds for 3D registration, binary masks for hand presence frame detection, and hand pose inference results for each frame detected to contain a hand.  
-
 
 ### Table of Contents
 * [Specifications](#specifications)
