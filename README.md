@@ -1,4 +1,4 @@
-# The baseline method of Egocentric Action Target Predictor
+# A Baseline for Egocentric Action Target Prediction
 
 ## Environment setup
 This code has been tested on Ubuntu 20.04, Python 3.7.0, Pytorch 1.9.0, CUDA 11.2.
