@@ -67,8 +67,3 @@ def farthest_point_sample(point, npoint):
     point = point[centroids.astype(np.int32)]
     return point
     
-number=800
-point=farthest_point_sample(np.random.randn(80000,3),800)
-# point=np.random.randn(80000,3)
-# f = FPSsampling(point)
-# final=f.generatesample(number)

@@ -3,11 +3,6 @@ import os
 import sys
 import numpy as np 
 import torch as t
-import torch.nn.parallel
-import torch.utils.data
-import torch.nn.functional as F
-import torch.distributions as tdist
-import torch.nn as nn
 
 
 def generatepred(x):
@@ -17,10 +12,11 @@ def generatepred(x):
                 x[i][t.where(x[i]<0.5)]=0
         return (x*resultlist).sum(1)/x.sum(1)
 
-def calculate2(x,y):
+def calculate(x,y):
 
         pred=generatepred(x)
         loss=((pred-y)**2).sum()
+
         return loss
 
 
@@ -30,6 +26,6 @@ def oriloss(pred,gt,length,device):
     for i in range(batch):
         
         for pred_xyz in range(length[i]):
-            loss.append((calculate2(pred[pred_xyz][i],gt[i][pred_xyz])*(2-pred_xyz/length[i])))
+            loss.append((calculate(pred[pred_xyz][i],gt[i][pred_xyz])*(2-pred_xyz/length[i])))
     return sum(loss)/batch
 

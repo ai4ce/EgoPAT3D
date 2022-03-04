@@ -4,7 +4,7 @@ import torch
 import torch.nn.parallel
 import torch.utils.data
 import torch.nn.functional as F
-from data_utils.RGBDDataLoader import RGBDDataLoader
+from data_utils.trainDataLoader import trainDataLoader
 import datetime
 import logging
 from pathlib import Path
@@ -17,20 +17,19 @@ from loss import oriloss
 
 def parse_args():
     '''PARAMETERS'''
-    parser = argparse.ArgumentParser('Predictor baseline train')
-    parser.add_argument('--batchsize', type=int, default=8, help='batch size in training')
+    parser = argparse.ArgumentParser('Baseline')
+    parser.add_argument('--data_path', type=str, default='', help='Benchmark path')
+    parser.add_argument('--batchsize', type=int, default=32, help='batch size in training')
     parser.add_argument('--epoch',  default=30, type=int, help='number of epoch in training')
     parser.add_argument('--learning_rate', default=0.005, type=float, help='learning rate in training')
-    parser.add_argument('--gpu', type=str, default='0,1', help='specify gpu device')
-    parser.add_argument('--num_point', type=int, default=8192, help='Point Number [default: 1024]')
-    parser.add_argument('--num_workers', type=int, default=8, help='Worker Number [default: 16]')
+    parser.add_argument('--gpu', type=str, default='0,1,2,3,4,5,6,7', help='specify gpu device')
+    parser.add_argument('--num_point', type=int, default=8192, help='Point Number [default: 8192]')
+    parser.add_argument('--num_workers', type=int, default=8, help='Worker Number [default: 8]')
     parser.add_argument('--optimizer', type=str, default='SGD', help='optimizer for training')
     parser.add_argument('--pretrain', type=str, default=None,help='whether use pretrain model')
     parser.add_argument('--decay_rate', type=float, default=1e-4, help='decay rate of learning rate')
-    parser.add_argument('--model_name', default='NYU', help='model name')
+    parser.add_argument('--model_name', default='', help='model name')
     parser.add_argument('--normal', action='store_true', default=True, help='Whether to use normal information [default: False]')
-    parser.add_argument('--datapath', action='store_true', default='', help='The path of dataset')
-
     return parser.parse_args()
 def main(args):
     '''HYPER PARAMETER'''
@@ -39,7 +38,7 @@ def main(args):
     '''CREATE DIR'''
     experiment_dir = Path(os.path.join(basepath,'experiment'))
     experiment_dir.mkdir(exist_ok=True)
-    file_dir = Path(str(experiment_dir) + '/%s_ModelNet40-'%args.model_name + str(datetime.datetime.now().strftime('%Y-%m-%d_%H-%M')))
+    file_dir = Path(str(experiment_dir) + '/%s_Baseline-'%args.model_name + str(datetime.datetime.now().strftime('%Y-%m-%d_%H-%M')))
     file_dir.mkdir(exist_ok=True)
     checkpoints_dir = file_dir.joinpath('checkpoints/')
     checkpoints_dir.mkdir(exist_ok=True)
@@ -61,9 +60,9 @@ def main(args):
 
     '''DATA LOADING'''
     logger.info('Load dataset ...')
-    DATA_PATH = args.datapath
+    DATA_PATH = args.data_path
 
-    TRAIN_DATASET = RGBDDataLoader(root=DATA_PATH,num=args.num_point)
+    TRAIN_DATASET = trainDataLoader(root=DATA_PATH,num=args.num_point)
     
     trainDataLoader = torch.utils.data.DataLoader(TRAIN_DATASET, batch_size=args.batchsize, shuffle=True, num_workers=args.num_workers)
 
@@ -92,12 +91,6 @@ def main(args):
         print('No existing model, starting training from scratch...')
         start_epoch = 0
 
-    def shufflepoint(workspace_point):
-        jittered_data = provider.random_scale_point_cloud(workspace_point[:,:, 0:3], scale_low=2.0/3, scale_high=3/2.0)
-        jittered_data = provider.shift_point_cloud(jittered_data, shift_range=0.2)
-        workspace_point[:, :, 0:3] = jittered_data
-        workspace_point = provider.random_point_dropout_v2(workspace_point)
-        provider.shuffle_points(workspace_point)
 
     if args.optimizer == 'SGD':
         optimizer = torch.optim.SGD(classifier.parameters(), lr=args.learning_rate, momentum=0.9)
@@ -131,7 +124,7 @@ def main(args):
         scheduler.step()
         for batch_id, data in tqdm(enumerate(trainDataLoader, 0), total=len(trainDataLoader), smoothing=0.9):
             
-            gt_xyz,pointcloud,geometry,LENGTH,name= data
+            gt_xyz,pointcloud,geometry,LENGTH,_= data
             
 
             pointcloud=pointcloud.transpose(3,2)
@@ -153,7 +146,6 @@ def main(args):
             global_step += 1
             totalloss=loss+totalloss
             
-            #print('\r Loss: %f' % float(loss))
             nnum=1
             if (batch_id+1)==nnum:
             
@@ -176,9 +168,6 @@ def main(args):
 
         print('\r Loss: %f' % loss.data)
         logger.info('Loss: %.2f', totalloss)
-    
-
-
         global_epoch += 1
 
     logger.info('End of training...')

@@ -1,11 +1,11 @@
-# A Baseline of Egocentric Action Target Predictor
+# The baseline method of Egocentric Action Target Predictor
 
 ## Environment setup
 This code has been tested on Ubuntu 20.04, Python 3.7.0, Pytorch 1.9.0, CUDA 11.2.
 Please install related libraries before running this code. The detailed information is included in `./requirement.txt`.
 
 ## Test and Validate
-Prepare the pre-trained model and set the checkpoints directory.
+Download the pre-trained model and set the checkpoints directory.
 
 
 ```
@@ -32,7 +32,7 @@ Download the datasets from our provided link.
 
 
 ### Train a model
-To train the predictor model, run `train.py` with the desired configs:
+To train the SiamAPN model, run `train.py` with the desired configs:
 
 ```
 python train.py 

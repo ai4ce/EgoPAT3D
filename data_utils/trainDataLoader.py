@@ -50,7 +50,7 @@ def str2int(v_str):
     return [tryint(sub_str) for sub_str in re.split('([0-9]+)', v_str)]
 
 
-class RGBDDataLoader(Dataset):
+class trainDataLoader(Dataset):
     def __init__(self, root,num):
         self.root = root
         self.scenepath=os.path.join(root,'sequences')
@@ -76,32 +76,26 @@ class RGBDDataLoader(Dataset):
                         for ran in range(2):
                             if ran==0:
                                 self.indexlist.append([scene,txtnum[:-4],line[0],line[1],line[3:6]])
-                                #self.maxclip=max(self.maxclip,int(int(line[1])-int(line[0])))
                                 self.cliplength.append(int(int(line[1])-int(line[0])))
                             else:
                                 self.indexlist.append([scene,txtnum[:-4],line[1],line[2],line[6:]])
-                                #self.maxclip=max(self.maxclip,int(int(line[2])-int(line[1])))
                                 self.cliplength.append(int(int(line[2])-int(line[1])))
                                 
                     elif len(line)==13:
                         for ran in range(3):
                             if ran==0:
                                 self.indexlist.append([scene,txtnum[:-4],line[0],line[1],line[4:7]])
-                                #self.maxclip=max(self.maxclip,int(int(line[1])-int(line[0])))
                                 self.cliplength.append(int(int(line[1])-int(line[0])))
                             elif ran==1:
                                 self.indexlist.append([scene,txtnum[:-4],line[1],line[2],line[7:10]])
-                                #self.maxclip=max(self.maxclip,int(int(line[2])-int(line[1])))
                                 self.cliplength.append(int(int(line[2])-int(line[1])))
                             else:
                                 self.indexlist.append([scene,txtnum[:-4],line[2],line[3],line[10:]])
-                                #self.maxclip=max(self.maxclip,int(int(line[3])-int(line[2])))
                                 self.cliplength.append(int(int(line[3])-int(line[2])))
                                 
                     elif len(line)==5:
                         for ran in range(1):
                             self.indexlist.append([scene,txtnum[:-4],line[0],line[1],line[2:]])
-                            #self.maxclip=max(self.maxclip,int(int(line[1])-int(line[0])))
                             self.cliplength.append(int(int(line[1])-int(line[0])))
                     else:
                         print('cliperror')
@@ -151,25 +145,18 @@ class RGBDDataLoader(Dataset):
 
     def _get_item(self, index):
          
-        finalsource=self.indexlist[self.indexoff[index]]   #self.indexlist[np.random.choice(np.arange(0,self.length))]
-        rgbpath=os.path.join(self.scenepath,finalsource[0],finalsource[1],'color')
-        dpath=os.path.join(self.scenepath,finalsource[0],finalsource[1],'d2rgb')
+        finalsource=self.indexlist[self.indexoff[index]]  
         imupath=os.path.join(self.scenepath,finalsource[0],finalsource[1],'data.txt')
-        pointpath=os.path.join(self.scenepath,finalsource[0],finalsource[1],'pointcloud','points')
-        colorpath=os.path.join(self.scenepath,finalsource[0],finalsource[1],'pointcloud','color')
         newpointpath=os.path.join(self.scenepath,finalsource[0],finalsource[1],'pointcloud')
 
-        #geometrypath=os.path.join(self.scenepath,finalsource[0],finalsource[1],'geometry')
         transfomationsourcepath=os.path.join(self.scenepath,finalsource[0],finalsource[1],'transformation','odometry')
         
         rangenum=int(finalsource[3])-int(finalsource[2])
         
         pointcloud=np.zeros((self.maxclip,self.num,6))
         
-        geometry=np.zeros((self.maxclip,18))  #transformation 12 6
+        geometry=np.zeros((self.maxclip,18))  
         
-        color_images=np.zeros((self.maxclip,3,2160,3840))  #transformation 12 6
-        depth_images=np.zeros((self.maxclip,1,2160,3840)) 
         gt_xyz=np.zeros((self.maxclip,3)) 
 
         first=np.array([float(finalsource[4][0]),float(finalsource[4][1]),float(finalsource[4][2])])
@@ -177,33 +164,7 @@ class RGBDDataLoader(Dataset):
 
         
         for idx in range(rangenum):
-            # colorpath=os.path.join(rgbpath,str(idx+1+int(finalsource[2]))+'.jpg')
-            # depathpath=os.path.join(dpath,str(idx+1+int(finalsource[2]))+'.png')
-             
-            # color_raw = o3d.io.read_image(colorpath)
-            # depth_raw = o3d.io.read_image(depathpath)
-            
-            # rgbd_image = o3d.geometry.RGBDImage.create_from_color_and_depth(
-            #     color_raw, depth_raw)
-            
-            # inter = o3d.camera.PinholeCameraIntrinsic()
-            # inter.set_intrinsics(3840, 2160, 1.80820276e+03, 1.80794556e+03, 1.94228662e+03, 1.12382178e+03)
-            
-            # pcd = o3d.geometry.PointCloud.create_from_rgbd_image(rgbd_image, inter)
-            
-            
-            # previous pointcloud
-            # pcdpoint=np.load(os.path.join(pointpath,str(idx+1+int(finalsource[2]))+'.npy'))
-            # pcdcolor=np.load(os.path.join(colorpath,str(idx+1+int(finalsource[2]))+'.npy'))
-            
 
-            # randomlist=np.random.choice(np.asarray(pcdpoint).shape[0],size=(self.num))
-            
-            # #pointcloud[idx,:,:]=farthest_point_sample(np.concatenate((pcdpoint,pcdcolor),1),8192)
-
-            # pointcloud[idx,:,:3]=pcdpoint[randomlist]
-            # pointcloud[idx,:,3:]=pcdcolor[randomlist]
-            
 
             point=o3d.io.read_point_cloud(os.path.join(newpointpath,str(idx+1+int(finalsource[2]))+'.ply'))
             pointxyz=np.asarray(point.points)
@@ -224,23 +185,19 @@ class RGBDDataLoader(Dataset):
 
             transfomationsource=np.load(os.path.join(transfomationsourcepath,str(idx+int(finalsource[2]))+'.npy'))[:3].reshape(-1)
             imudata=self.getimudata(imupath,1+idx+int(finalsource[2])).reshape(-1)
-            #eachgeometry=np.load(os.path.join(geometrypath,str(idx+int(finalsource[2]))+'.npy')).reshape(-1)
             
-            geometry[idx]=np.concatenate((transfomationsource,imudata),0) #np.concatenate((eachgeometry,transfomationsource),0)
-
-            # color_images[idx] = np.asarray(color_raw).transpose(2,0,1)
-            # depth_images[idx][0] = np.asarray(depth_raw)
+            geometry[idx]=np.concatenate((transfomationsource,imudata),0) 
             
 
 
 
-        return gt_xyz,pointcloud,geometry,rangenum,finalsource#,color_images,depth_images
+        return gt_xyz,pointcloud,geometry,rangenum,finalsource
 
 
 
 if __name__ == '__main__':
     import torch
-    DATA_PATH = '/home/yml/EgolnP/Benchmark/'
+    DATA_PATH = './Benchmark/'
     TRAIN_DATASET = RGBDDataLoader(root=DATA_PATH,num=8192)
     trainDataLoader = torch.utils.data.DataLoader(TRAIN_DATASET, batch_size=8, shuffle=True, num_workers=16)
     for batch_id, data in tqdm(enumerate(trainDataLoader, 0), total=len(trainDataLoader), smoothing=0.9):

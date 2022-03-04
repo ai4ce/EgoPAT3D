@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Mon May  3 16:18:45 2021
 
-@author: c
-"""
 import torch.nn as nn
 import torch as t
 import numpy as np
@@ -46,14 +42,13 @@ class pointconvbackbonetest(nn.Module):
 class Baseline(nn.Module):
     def __init__(self,batch):
         super(Baseline, self).__init__()
-        num=2
-        self.fc_channel=1024
+        num_LSTM=2
         midfc_channel=1024
         self.hind=midfc_channel
             
         self.backbone=pointconvbackbone()
         self.mlp_semantic=nn.Sequential(
-            nn.Linear(self.fc_channel, midfc_channel),
+            nn.Linear(midfc_channel, midfc_channel),
             nn.BatchNorm1d(midfc_channel),
             nn.ReLU(),
             nn.Linear(midfc_channel, midfc_channel),
@@ -72,16 +67,9 @@ class Baseline(nn.Module):
                 nn.ReLU(),               
                 nn.Linear(midfc_channel, midfc_channel),)
         
-        self.gru=nn.LSTM(midfc_channel,midfc_channel,num)
+        self.LSTM=nn.LSTM(midfc_channel,midfc_channel,num_LSTM)
 
-        self.h0=nn.Parameter(t.randn(num,1,midfc_channel))
 
-        self.initial=nn.Sequential(
-            nn.Linear(midfc_channel, midfc_channel*2),
-            nn.BatchNorm1d(midfc_channel*2),
-            nn.ReLU(),
-            nn.Linear(midfc_channel*2, midfc_channel)
-        )
 
         self.initiala1=nn.Sequential(
             nn.Linear(midfc_channel, midfc_channel*2),
@@ -95,18 +83,8 @@ class Baseline(nn.Module):
             nn.ReLU(),
             nn.Linear(midfc_channel*2, midfc_channel)
         )
-        self.initiala3=nn.Sequential(
-            nn.Linear(midfc_channel, midfc_channel*2),
-            nn.BatchNorm1d(midfc_channel*2),
-            nn.ReLU(),
-            nn.Linear(midfc_channel*2, midfc_channel)
-        )
-        self.initiala4=nn.Sequential(
-            nn.Linear(midfc_channel, midfc_channel*2),
-            nn.BatchNorm1d(midfc_channel*2),
-            nn.ReLU(),
-            nn.Linear(midfc_channel*2, midfc_channel)
-        )
+
+
 
         self.contin1=nn.Sequential(
             nn.Linear(midfc_channel, midfc_channel*3),
@@ -120,18 +98,7 @@ class Baseline(nn.Module):
             nn.ReLU(),
             nn.Linear(midfc_channel*3, midfc_channel)
         )
-        self.contin3=nn.Sequential(
-            nn.Linear(midfc_channel, midfc_channel*3),
-            nn.BatchNorm1d(midfc_channel*3),
-            nn.ReLU(),
-            nn.Linear(midfc_channel*3, midfc_channel)
-        )
-        self.contin4=nn.Sequential(
-            nn.Linear(midfc_channel, midfc_channel*3),
-            nn.BatchNorm1d(midfc_channel*3),
-            nn.ReLU(),
-            nn.Linear(midfc_channel*3, midfc_channel)
-        )
+
 
         
 
@@ -157,7 +124,6 @@ class Baseline(nn.Module):
         for m in self.children():
             if isinstance(m, (nn.Conv2d, nn.Linear)):
                 nn.init.xavier_uniform_(m.weight(), gain=nn.init.calculate_gain('relu'))
-            # 也可以判断是否为conv2d，使用相应的初始化方式 
             elif isinstance(m, nn.Conv2d):
                 nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
              
@@ -183,37 +149,24 @@ class Baseline(nn.Module):
         batch_size=geometry.shape[0]
         predictlist=[]
 
-        for sequences in range(int(LEGHTN[0])):#max(max(LEGHTN),max(LEGHTN1))):
+        for sequences in range(int(LEGHTN[0])):
             eachsequences_feature=self.backbone(pointxyz[:,sequences,:,:].float(),pointfeat[:,sequences,:,:].float())
             sematic_feature = self.mlp_semantic(eachsequences_feature)
             geometry_feature = self.mlp_geometry(geometry[:,sequences,:].float())
             feature=self.fine(t.cat((sematic_feature,geometry_feature),-1)).unsqueeze(0)
-            # t.cat((self.contin1(feature.squeeze(0)).unsqueeze(0),self.contin2(feature.squeeze(0)).unsqueeze(0),\
-            #     self.contin3(feature.squeeze(0)).unsqueeze(0),self.contin4(feature.squeeze(0)).unsqueeze(0)),0)
 
             if sequences==0:
                 cinit=t.cat((self.initiala1(feature.squeeze(0)).unsqueeze(0),self.initiala2(feature.squeeze(0)).unsqueeze(0),\
                     ),0)
                 hout=t.cat((self.contin1(feature.squeeze(0)).unsqueeze(0),self.contin2(feature.squeeze(0)).unsqueeze(0),\
                  ),0)
-                # t.cat((self.initiala1(feature.squeeze(0)).unsqueeze(0),self.initiala2(feature.squeeze(0)).unsqueeze(0),\
-                #     self.initiala3(feature.squeeze(0)).unsqueeze(0),self.initiala4(feature.squeeze(0)).unsqueeze(0)),0)
 
-                output,(hout,cout)=self.gru(feature,(hout,cinit))
+                output,(hout,cout)=self.LSTM(feature,(hout,cinit))
                 
             else:
                 
-                #feature=t.cat((feature,self.fine(t.cat((sematic_feature,geometry_feature),-1)).unsqueeze(0)),0)
-                output,(hout,cout)=self.gru(feature,(hout,cout))
-            threshold=1
+                output,(hout,cout)=self.LSTM(feature,(hout,cout))
 
-            # if sequences<threshold: #前两个没限制
-            #     featuress=self.init(feature.squeeze(0))
-            #     #output,hout=self.gru(feature[:sequences+1],hint)
-            # else:
-            #     featuress=self.contin(t.cat((featuress,feature[sequences]),1))
-
-            res=output[-1]
-            predictlist.append(t.cat((self.x(res).unsqueeze(1),self.y(res).unsqueeze(1),self.z(res).unsqueeze(1)),1))
+            predictlist.append(t.cat((self.x(output[-1]).unsqueeze(1),self.y(output[-1]).unsqueeze(1),self.z(output[-1]).unsqueeze(1)),1))
         
         return predictlist
