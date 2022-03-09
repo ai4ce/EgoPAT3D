@@ -1,6 +1,5 @@
 # Tools for preprocessing the original data
 
-##
 
 ## 1. mkv2d2rgbrgb.py
 
@@ -14,7 +13,7 @@ This file aims to transform RGBD images to point clouds.
 
 This file aims to generate the ground truth (in the first frame) based on the location of the target in the last frame. Besides, it will output the visualization  of the ground truth for our validation.
 
-## imu 
+## 4. imu 
 
 An example about generating imu data from MKV files.
 
