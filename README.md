@@ -5,7 +5,7 @@ This code has been tested on Ubuntu 20.04, Python 3.7.0, Pytorch 1.9.0, CUDA 11.
 Please install related libraries before running this code. The detailed information is included in `./requirement.txt`.
 
 ## Test and Validate
-Download the pre-trained model and set the checkpoints directory.
+Download the pre-trained [model]() and set the checkpoints directory.
 
 
 ```
@@ -28,11 +28,43 @@ The testing and validating result will be saved in the `./results/model_name` di
 
 ### Prepare training datasets
 
-Download the datasets from our provided link.
+Download the datasets from our provided link and put it into `./benchmark/`.
 
+#### Dataset folder hierarchy
+```bash
+Dataset/
+    ├──annotrain/ # The annotation of train set
+        ├── bathroomCabinet/ # The name of different scenes
+            ├── bathroomCabinet_1.txt/ # The groundtruth of each clip
+            ├── bathroomCabinet_2.txt/
+            ├── bathroomCabinet_3.txt/
+            └── bathroomCabinet_4.txt/
+                
+        ├── bathroomCounter/ 
+        ├── ...
+        └── nightstand/
+    ├──annonoveltest_final/ # The annotation of test set (unseen scenes)
+        └── ...
+    ├──annotest_final/ # The annotation of test set (seen scenes)
+    ├──annovalidate_final/ # The annotation of validation set
+    ├──sequences/ # The pointcloud and imu data of each scene
+        ├── bathroomCabinet/ 
+            ├── bathroomCabinet_1/ 
+                 ├── pointcloud/ # The pointcloud files
+                 ├── transformation/ # The odometry files
+                 └── data.txt/ # The imu data of bathroomCabinet_1
+            .
+            .
+    
+            └── bathroomCabinet_6/
+        .
+        .
+    
+        └── woodenTable
+```
 
 ### Train a model
-To train the SiamAPN model, run `train.py` with the desired configs:
+To train the predictor model, run `train.py` with the desired configs:
 
 ```
 python train.py 
