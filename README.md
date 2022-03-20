@@ -5,7 +5,7 @@ This code has been tested on Ubuntu 20.04, Python 3.7.0, Pytorch 1.9.0, CUDA 11.
 Please install related libraries before running this code. The detailed information is included in `./requirement.txt`.
 
 ## Test and Validate
-Download the pre-trained [model]() and set the checkpoints directory.
+Download the pre-trained [model](https://drive.google.com/file/d/1u8b4xcLlevOmwXP-GTImAPDzfISAnNUR/view?usp=sharing) and set the checkpoints directory.
 
 
 ```
