@@ -100,7 +100,7 @@ Dataset/
 
 # Data Processing
 
-#### Groundtruth generation
+#### * Groundtruth generation
 Our annotation can be semi-automatic with several off-the-shelf machine learning algorithms, thus is quite efficient. Given a recording, we manually divide it into multiple action clips. To localize the 3D target in each clip, we use the following procedures. Firstly, we take the last frame of each clip based on the index provided by the manual division. Secondly, we use an off-the-shelf hand pose estimation model to localize the hand center in the last frame of each clip. Thirdly, we use colored point cloud registration to calculate the transformation matrices between the adjacent frames. Finally, for each clip, we transform the hand location in the last frame to historical frames according to the results of the third step, and the transformed locations can describe the 3D action target location in each frame's coordinate. Detailed procedures are presented as follows.
 
 #### Table of Contents
