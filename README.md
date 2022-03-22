@@ -11,8 +11,10 @@
 </p>
 
 <p align="center">
-  <img width="100%" height="50%" src="https://github.com/ai4ce/EgoPAT3D/blob/gh-pages/img/home/scene.jpg">
+  <img width="100%" height="50%" src="https://ai4ce.github.io/EgoPAT3D/img/workflow.jpg">
 </p>
+
+## Abstract
 
 ## Environment setup
 This code has been tested on Ubuntu 20.04, Python 3.7.0, Pytorch 1.9.0, CUDA 11.2.
