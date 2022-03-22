@@ -96,7 +96,7 @@ If you find our work useful in your research, please cite:
 ```
 @InProceedings{Li_2022_CVPR,
       title = {Egocentric Prediction of Action Target in 3D},
-      author = {Li, Yiming and Cao, Ziang and Liang, Andrew and Liang, Benjamin and Zhao, Hang and Feng, Chen},
+      author = {Li, Yiming and Cao, Ziang and Liang, Andrew and Liang, Benjamin and Chen, Luoyao and Zhao, Hang and Feng, Chen},
       booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
       month = {June},
       year = {2022}
