@@ -2,7 +2,7 @@ EgoPAT3D: Egocentric Prediction of Action Target in 3D [CVPR 2022]
 ==========
 <p> 
   <b><a href="https://scholar.google.com/citations?user=i_aajNoAAAAJ&hl=en">Yiming Li*</a></b> ,
-  <b><a href="https://vision4robotics.github.io/authors/ziang-cao/">Ziang Cao*</a></b> , 
+  <b><a href="https://ziangcao0312.github.io/">Ziang Cao*</a></b> , 
   <b><a href="https://www.linkedin.com/in/andrew-s-liang/">Andrew Liang</a></b>, 
   <b><a href="https://www.linkedin.com/in/benjamin-s-liang/">Benjamin Liang</a></b>, 
   <b><a href="https://www.linkedin.com/in/luoyao-chen/">Luoyao Chen</a></b>, 
