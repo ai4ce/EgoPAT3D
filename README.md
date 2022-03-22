@@ -1,5 +1,5 @@
-# A Baseline Method for Egocentric Prediction of Action Target in 3D [CVPR 2022]
-==========
+# Egocentric Prediction of 3D Action Target Baseline Method [CVPR 2022]
+
 <p> 
   <b><a href="https://scholar.google.com/citations?user=i_aajNoAAAAJ&hl=en">Yiming Li*</a></b> ,
   <b><a href="https://ziangcao0312.github.io/">Ziang Cao*</a></b> , 
@@ -15,30 +15,11 @@
 </p>
 
 ## Abstract
+Egocentric 3D action target prediction is a very challenging task. We propose a simple baseline method which uses two backbone networks separately for multimodality representation learning, followed by utilizing concatenation to achieve multimodality feature fusion, and we employ a recurrent neural network (RNN) to achieve continuous update for the 3D action target.
 
 ## Environment setup
 This code has been tested on Ubuntu 20.04, Python 3.7.0, Pytorch 1.9.0, CUDA 11.2.
 Please install related libraries before running this code. The detailed information is included in `./requirement.txt`.
-
-## Test and Validate
-Download the pre-trained [model](https://drive.google.com/file/d/1u8b4xcLlevOmwXP-GTImAPDzfISAnNUR/view?usp=sharing) and set the checkpoints directory.
-
-
-```
-python test.py 	                          \
-	--model_name LSTM-based           \ # tracker_name
-	--checkpoint ./experiment/LSTM-based.pth   #model_path
-	--datapath ./data_path   #data_path
-```
-
-```
-python validate.py 	                          \
-	--model_name LSTM-based           \ # tracker_name
-	--checkpoint ./experiment/LSTM-based.pth   #model_path
-	--datapath ./data_path   #data_path
-```
-
-The testing and validating result will be saved in the `./results/model_name` directory.
 
 ## Train
 
@@ -86,8 +67,38 @@ To train the predictor model, run `train.py` with the desired configs:
 python train.py 
 ```
 
+## Test and Validate
+Download the pre-trained [model](https://drive.google.com/file/d/1u8b4xcLlevOmwXP-GTImAPDzfISAnNUR/view?usp=sharing) and set the checkpoints directory.
 
+
+```
+python test.py 	                          \
+	--model_name LSTM-based           \ # tracker_name
+	--checkpoint ./experiment/LSTM-based.pth   #model_path
+	--datapath ./data_path   #data_path
+```
+
+```
+python validate.py 	                          \
+	--model_name LSTM-based           \ # tracker_name
+	--checkpoint ./experiment/LSTM-based.pth   #model_path
+	--datapath ./data_path   #data_path
+```
+
+The testing and validating result will be saved in the `./results/model_name` directory.
 
 
 ## Acknowledgement
 The code of predictor is implemented based on [PointConv](https://github.com/DylanWusee/pointconv_pytorch). We would like to express our sincere thanks to the contributors.
+
+## Citation
+If you find our work useful in your research, please cite:
+```
+@InProceedings{Li_2022_CVPR,
+      title = {Egocentric Prediction of Action Target in 3D},
+      author = {Li, Yiming and Cao, Ziang and Liang, Andrew and Liang, Benjamin and Zhao, Hang and Feng, Chen},
+      booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+      month = {June},
+      year = {2022}
+}
+```
