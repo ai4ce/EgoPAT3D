@@ -1,4 +1,4 @@
-EgoPAT3D - Egocentric Action Target Prediction Dataset
+EgoPAT3D: Egocentric Prediction of Action Target in 3D [CVPR 2022]
 ==========
 <p> 
   <b><a href="https://scholar.google.com/citations?user=i_aajNoAAAAJ&hl=en">Yiming Li*</a></b> ,
@@ -10,7 +10,7 @@ EgoPAT3D - Egocentric Action Target Prediction Dataset
   <b><a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ&hl=en">Chen Feng</a></b>
 </p>
 
- <p style="font-size:small">* denotes equal contribution </p>
+<!--  <p style="font-size:small">* denotes equal contribution </p> -->
 
 <p align="center">
   <img width="100%" height="50%" src="https://github.com/ai4ce/EgoPAT3D/blob/gh-pages/img/home/scene.jpg">
@@ -99,9 +99,22 @@ Dataset/
 2. Manual build using HPC (currently only available on NYU HPC)
 <br/>Download the raw multimodal recording data and generate a local copy of the dataset on your NYU HPC /scratch space, following instructions provided in this repository's model_build folder. May take 1-3 days to build on NYU Greene depending on compute resource availability.
 
-<br>
+## Citation
+If you find FLAT useful in your research, please cite:
+```
+@InProceedings{Li_2022_CVPR,
+      title = {Egocentric Prediction of Action Target in 3D},
+      author = {Li, Yiming and Cao, Ziang and Liang, Andrew and Liang, Benjamin and Zhao, Hang and Feng, Chen},
+      booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+      month = {June},
+      year = {2022}
+}
+```
+
+<!-- <br>
 <p align="center">
   <a href="https://www.revolvermaps.com/livestats/5chmzyob7br/">Live Visitor Statistics (via RevolverMaps)</a> 
   <br><br>
   <img align="center" width="50%" height="50%" src="http://rf.revolvermaps.com/h/m/a/0/ff0000/256/10/5chmzyob7br.png">
 </p>
+ -->
