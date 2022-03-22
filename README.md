@@ -16,11 +16,11 @@ EgoPAT3D: Egocentric Prediction of Action Target in 3D [CVPR 2022]
   <img width="100%" height="50%" src="https://github.com/ai4ce/EgoPAT3D/blob/gh-pages/img/home/scene.jpg">
 </p>
 
-# Abstract
+## Abstract
 
 We are interested in anticipating as early as possible the target location of a person's object manipulation action in a 3D workspace from egocentric vision. It is important in fields like human-robot collaboration, but has not yet received enough attention from vision and learning communities. To stimulate more research on this challenging egocentric vision task, we propose a large multimodality dataset of more than 1 million frames of RGB-D and IMU streams, and provide evaluation metrics based on our high-quality 2D and 3D labels from semi-automatic annotation. Meanwhile, we design baseline methods using recurrent neural networks (RNNs) and conduct various ablation studies to validate their effectiveness. Our results demonstrate that this new task is worthy of further study by researchers in robotics, vision, and learning communities.
 
-# Raw Data
+## Raw Data
 <b>EgoPAT3D</b> contains multimodal data generated from RGBD first-person videos recorded using a helmet-mounted Azure Kinect depth camera. In each recording, the camera wearer reaches for, grabs, and moves objects randomly placed in a household scene.
 
 Each recording features a different configuration of household objects within the scene. The dataset also contains scene point clouds for 3D registration, binary masks for hand presence frame detection, and hand pose inference results for each frame detected to contain a hand.  
@@ -99,10 +99,10 @@ Dataset/
 <br/>Download the raw multimodal recording data and generate a local copy of the dataset on your NYU HPC /scratch space, following instructions provided in this repository's model_build folder. May take 1-3 days to build on NYU Greene depending on compute resource availability.
 
 
-# Groundtruth Generation
+## Groundtruth Generation
 Our annotation can be semi-automatic with several off-the-shelf machine learning algorithms, thus is quite efficient. Given a recording, we manually divide it into multiple action clips. To localize the 3D target in each clip, we use the following procedures. Firstly, we take the last frame of each clip based on the index provided by the manual division. Secondly, we use an off-the-shelf hand pose estimation model to localize the hand center in the last frame of each clip. Thirdly, we use colored point cloud registration to calculate the transformation matrices between the adjacent frames. Finally, for each clip, we transform the hand location in the last frame to historical frames according to the results of the third step, and the transformed locations can describe the 3D action target location in each frame's coordinate. Detailed procedures are presented as follows.
 
-# Baseline Method 
+## Baseline Method 
 To obtain the training data from the raw datastreams, please follow the [instructions](https://github.com/ai4ce/EgoPAT3D/tree/main/preprocessing). To use our processed data, please follow the baseline method [implementation](https://github.com/ai4ce/EgoPAT3D/tree/Predictor-code).
 
 
