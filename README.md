@@ -18,10 +18,9 @@ EgoPAT3D: Egocentric Prediction of Action Target in 3D [CVPR 2022]
 
 # Abstract
 
-We are interested in anticipating as early as possible the target location of someone's object manipulation action in a 3D workspace from egocentric vision. It is important in fields like human-robot collaboration, but has not yet received enough attention from vision and learning communities. To stimulate more research on this challenging egocentric vision task, we propose a large multi-modal dataset of more than 1 million frames of RGBD and IMU streams,
-and provide evaluation metrics based on our high-quality 2D and 3D labels from semi-automatic annotation. Meanwhile, we design baseline methods using recurrent neural networks (RNNs) and conduct various ablation studies to validate their effectiveness. Our results demonstrate that this new task is worthy of further study and could attract researchers in robotics, vision, and learning.
+We are interested in anticipating as early as possible the target location of a person's object manipulation action in a 3D workspace from egocentric vision. It is important in fields like human-robot collaboration, but has not yet received enough attention from vision and learning communities. To stimulate more research on this challenging egocentric vision task, we propose a large multimodality dataset of more than 1 million frames of RGB-D and IMU streams, and provide evaluation metrics based on our high-quality 2D and 3D labels from semi-automatic annotation. Meanwhile, we design baseline methods using recurrent neural networks (RNNs) and conduct various ablation studies to validate their effectiveness. Our results demonstrate that this new task is worthy of further study by researchers in robotics, vision, and learning communities.
 
-# Dataset
+# Raw Dataset
 <b>EgoPAT3D</b> contains multimodal data generated from RGBD first-person videos recorded using a helmet-mounted Azure Kinect depth camera. In each recording, the camera wearer reaches for, grabs, and moves objects randomly placed in a household scene.
 
 Each recording features a different configuration of household objects within the scene. The dataset also contains scene point clouds for 3D registration, binary masks for hand presence frame detection, and hand pose inference results for each frame detected to contain a hand.  
@@ -100,7 +99,7 @@ Dataset/
 <br/>Download the raw multimodal recording data and generate a local copy of the dataset on your NYU HPC /scratch space, following instructions provided in this repository's model_build folder. May take 1-3 days to build on NYU Greene depending on compute resource availability.
 
 ## Citation
-If you find FLAT useful in your research, please cite:
+If you find our work useful in your research, please cite:
 ```
 @InProceedings{Li_2022_CVPR,
       title = {Egocentric Prediction of Action Target in 3D},
