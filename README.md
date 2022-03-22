@@ -1,4 +1,18 @@
-# A Baseline for Egocentric Action Target Prediction
+# A Baseline Method for Egocentric Prediction of Action Target in 3D [CVPR 2022]
+==========
+<p> 
+  <b><a href="https://scholar.google.com/citations?user=i_aajNoAAAAJ&hl=en">Yiming Li*</a></b> ,
+  <b><a href="https://ziangcao0312.github.io/">Ziang Cao*</a></b> , 
+  <b><a href="https://www.linkedin.com/in/andrew-s-liang/">Andrew Liang</a></b>, 
+  <b><a href="https://www.linkedin.com/in/benjamin-s-liang/">Benjamin Liang</a></b>, 
+  <b><a href="https://www.linkedin.com/in/luoyao-chen/">Luoyao Chen</a></b>, 
+  <b><a href="https://scholar.google.com/citations?user=DmahiOYAAAAJ">Hang Zhao</a></b>, 
+  <b><a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ&hl=en">Chen Feng</a></b>
+</p>
+
+<p align="center">
+  <img width="100%" height="50%" src="https://github.com/ai4ce/EgoPAT3D/blob/gh-pages/img/home/scene.jpg">
+</p>
 
 ## Environment setup
 This code has been tested on Ubuntu 20.04, Python 3.7.0, Pytorch 1.9.0, CUDA 11.2.
