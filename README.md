@@ -88,6 +88,20 @@ python validate.py 	                          \
 The testing and validating result will be saved in the `./results/model_name` directory.
 
 
+## Evaluation
+
+
+```
+python eval.py 	                          \
+	--data_path  ./benchmark         \ # The path of the dataset
+	--model_name LSTM   # The name of predictor
+	--vis 0/1   # Whether to view the pointcloud
+    --visclip 0/1 # Whether to save the results of each clips
+```
+
+The results and visualization results will be saved in the `./results/` directory.
+
+
 ## Acknowledgement
 The code of predictor is implemented based on [PointConv](https://github.com/DylanWusee/pointconv_pytorch). We would like to express our sincere thanks to the contributors.
 
