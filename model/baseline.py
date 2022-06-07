@@ -67,7 +67,7 @@ class Baseline(nn.Module):
                 nn.ReLU(),               
                 nn.Linear(midfc_channel, midfc_channel),)
         
-        self.LSTM=nn.LSTM(midfc_channel,midfc_channel,num_LSTM)
+        self.temporalnet=nn.LSTM(midfc_channel,midfc_channel,num_LSTM)
 
 
 
@@ -161,11 +161,12 @@ class Baseline(nn.Module):
                 hout=t.cat((self.contin1(feature.squeeze(0)).unsqueeze(0),self.contin2(feature.squeeze(0)).unsqueeze(0),\
                  ),0)
 
-                output,(hout,cout)=self.LSTM(feature,(hout,cinit))
+
+                output,(hout,cout)=self.temporalnet(feature,(hout,cinit))
                 
             else:
                 
-                output,(hout,cout)=self.LSTM(feature,(hout,cout))
+                output,(hout,cout)=self.temporalnet(feature,(hout,cout))
 
             predictlist.append(t.cat((self.x(output[-1]).unsqueeze(1),self.y(output[-1]).unsqueeze(1),self.z(output[-1]).unsqueeze(1)),1))
         
