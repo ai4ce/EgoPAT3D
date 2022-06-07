@@ -25,7 +25,7 @@ Please install related libraries before running this code. The detailed informat
 
 ### Prepare training datasets
 
-Download the datasets from [here](https://drive.google.com/file/d/119Fap67qfxIt1AsCme0ABD3ZjW4c4EIa/view?usp=sharing) and put it into `./benchmark/`.
+Download the datasets from [here](https://drive.google.com/drive/folders/1Eszuzqg0mnGX8fwUjC0YUZbPqtP5xJYp?usp=sharing) and put it into `./benchmark/`.
 
 #### Dataset folder hierarchy
 ```bash
@@ -68,7 +68,7 @@ python train.py
 ```
 
 ## Test and Validate
-Download the pre-trained model [here](https://drive.google.com/file/d/1u8b4xcLlevOmwXP-GTImAPDzfISAnNUR/view?usp=sharing) and set the checkpoints directory.
+Download the pre-trained model [here](https://drive.google.com/file/d/119Fap67qfxIt1AsCme0ABD3ZjW4c4EIa/view?usp=sharing) and set the checkpoints directory.
 
 
 ```
