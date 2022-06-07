@@ -25,7 +25,7 @@ Please install related libraries before running this code. The detailed informat
 
 ### Prepare training datasets
 
-Download the datasets from [here]() and put it into `./benchmark/`.
+Download the datasets from [here](https://drive.google.com/file/d/119Fap67qfxIt1AsCme0ABD3ZjW4c4EIa/view?usp=sharing) and put it into `./benchmark/`.
 
 #### Dataset folder hierarchy
 ```bash
