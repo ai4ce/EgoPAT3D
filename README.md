@@ -68,7 +68,7 @@ python train.py
 ```
 
 ## Test and Validate
-Download the pre-trained [model](https://drive.google.com/file/d/1u8b4xcLlevOmwXP-GTImAPDzfISAnNUR/view?usp=sharing) and set the checkpoints directory.
+Download the pre-trained model [here](https://drive.google.com/file/d/1u8b4xcLlevOmwXP-GTImAPDzfISAnNUR/view?usp=sharing) and set the checkpoints directory.
 
 
 ```
