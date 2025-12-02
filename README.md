@@ -42,9 +42,9 @@ Azure Kinect recording specifications:
 | Recording mode | -- | WFOV 2x2 binned |  
 
 ### Access dataset:
-[Dataset without raw .MKV recordings and individual pre-extracted RGB frames](https://drive.google.com/drive/folders/1WHCWQ3dVoBqz6lkJKzgVoDfU_NO0lcFw?usp=sharing)
+[Dataset without raw .MKV recordings and individual pre-extracted RGB frames](https://huggingface.co/datasets/ai4ce/EgoPAT3Dv1)
 
-[Raw .MKV recordings](https://drive.google.com/drive/folders/1cxisgjUK9afV9vr62L_m6Shb7Mfl39zc?usp=sharing)
+[Raw .MKV recordings (available upon email request to cfeng@nyu.edu)](https://drive.google.com/drive/folders/1cxisgjUK9afV9vr62L_m6Shb7Mfl39zc?usp=sharing)
 
 ### Dataset folder hierarchy
 ```bash
